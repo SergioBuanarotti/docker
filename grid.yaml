@@ -29,7 +29,7 @@ services:
       - SE_NODE_SESSION_TIMEOUT=80
     entrypoint: bash -c 'SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'
     deploy:
-      replicas: 2
+      replicas: 3
       placement:
         constraints:
           - node.role == worker
@@ -48,7 +48,7 @@ services:
       - SE_NODE_SESSION_TIMEOUT=80
     entrypoint: bash -c 'SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'
     deploy:
-      replicas: 2
+      replicas: 3
       placement:
         constraints:
           - node.role == worker
@@ -67,7 +67,7 @@ services:
       - SE_NODE_SESSION_TIMEOUT=80
     entrypoint: bash -c 'SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'
     deploy:
-      replicas: 2
+      replicas: 3
       placement:
         constraints:
           - node.role == worker
