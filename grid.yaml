@@ -25,6 +25,7 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
       - SE_NODE_MAX_SESSIONS=2
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_NODE_SESSION_TIMEOUT=80
     entrypoint: bash -c 'SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'
     deploy:
       replicas: 1
@@ -42,6 +43,7 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
       - SE_NODE_MAX_SESSIONS=2
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_NODE_SESSION_TIMEOUT=80
     entrypoint: bash -c 'SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'
     deploy:
       replicas: 1
@@ -59,6 +61,7 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
       - SE_NODE_MAX_SESSIONS=2
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_NODE_SESSION_TIMEOUT=80
     entrypoint: bash -c 'SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'
     deploy:
       replicas: 1
