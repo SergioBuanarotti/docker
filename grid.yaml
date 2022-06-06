@@ -28,6 +28,11 @@ services:
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
       - SE_NODE_SESSION_TIMEOUT=80
     entrypoint: bash -c 'SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'
+    volumes:
+      - type: tmpfs
+        target: /dev/shm
+        tmpfs:
+           size: 4096000000
     deploy:
       replicas: 2
       placement:
@@ -47,6 +52,11 @@ services:
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
       - SE_NODE_SESSION_TIMEOUT=80
     entrypoint: bash -c 'SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'
+    volumes:
+      - type: tmpfs
+        target: /dev/shm
+        tmpfs:
+           size: 4096000000
     deploy:
       replicas: 2
       placement:
@@ -66,6 +76,11 @@ services:
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
       - SE_NODE_SESSION_TIMEOUT=80
     entrypoint: bash -c 'SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'
+    volumes:
+      - type: tmpfs
+        target: /dev/shm
+        tmpfs:
+           size: 4096000000
     deploy:
       replicas: 2
       placement:
