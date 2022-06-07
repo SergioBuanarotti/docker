@@ -28,7 +28,7 @@ services:
       - SE_NODE_SESSION_TIMEOUT=80
     entrypoint: bash -c 'SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'
     volumes:
-      - /home/ubuntu/output.y4m:/home/ubuntu/output.y4m
+      - /home/ubuntu/output.y4m:/output.y4m
       - type: tmpfs
         target: /dev/shm
         tmpfs:
