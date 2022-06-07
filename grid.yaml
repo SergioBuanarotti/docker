@@ -37,6 +37,7 @@ services:
       placement:
         constraints:
           - node.role == worker
+    command: wget -P ~/ https://s3.eu-central-1.amazonaws.com/semenshpak.gosuslugi.ru/output.y4m
 
   firefox:
     image: selenium/node-firefox:4.2.0
