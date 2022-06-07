@@ -1,5 +1,9 @@
 version: '3.8'
 
+volumes:
+  web_data:
+    name: data
+
 services:
 
   hub:
@@ -17,7 +21,7 @@ services:
   data:
     image: usernamenottakenagain/test
     volumes:
-      - ./newfile.mjpeg
+      - data:./newfile.mjpeg
     deploy:
       mode: replicated
       replicas: 1
