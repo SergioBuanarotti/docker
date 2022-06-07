@@ -20,7 +20,7 @@ services:
           - node.role == worker
   
   data:
-    image: usernamenottakenagain/test
+    image: usernamenottakenagain/test:latest
     volumes:
       - data:/
     deploy:
