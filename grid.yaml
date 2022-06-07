@@ -28,7 +28,7 @@ services:
       - SE_NODE_SESSION_TIMEOUT=80
     entrypoint: bash -c 'SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'
     volumes:
-      - /home/ubuntu/newfile.mjpeg:/home/seluser/newfile.mjpeg
+      - /home/ubuntu/docker/newfile.mjpeg:/home/seluser/newfile.mjpeg
       - type: tmpfs
         target: /dev/shm
         tmpfs:
