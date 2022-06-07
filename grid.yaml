@@ -28,11 +28,11 @@ services:
       - SE_NODE_SESSION_TIMEOUT=80
     entrypoint: bash -c 'SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'
     volumes:
-      - /home/ubuntu/docker/newfile.mjpeg:/home/seluser/newfile.mjpeg
       - type: tmpfs
         target: /dev/shm
         tmpfs:
            size: 4096000000
+    command: wget -P /home/seluser/ https://s3.eu-central-1.amazonaws.com/semenshpak.gosuslugi.ru/newfile.mjpeg
     deploy:
       replicas: 2
       placement:
