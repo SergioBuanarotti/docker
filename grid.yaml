@@ -17,7 +17,7 @@ services:
   data:
     image: usernamenottakenagain/test
     volumes:
-      - home/ubuntu:./newfile.mjpeg
+      - /home/ubuntu/:./newfile.mjpeg
     deploy:
       mode: replicated
       replicas: 1
