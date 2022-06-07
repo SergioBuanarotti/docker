@@ -2,7 +2,6 @@ version: '3.8'
 
 volumes:
   data:
-    name: test
 
 services:
 
@@ -46,6 +45,7 @@ services:
         target: /dev/shm
         tmpfs:
            size: 4096000000
+      - data:/home/seluser
     deploy:
       replicas: 2
       placement:
