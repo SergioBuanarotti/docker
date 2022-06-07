@@ -21,7 +21,7 @@ services:
   data:
     image: usernamenottakenagain/test
     volumes:
-      - data:./newfile.mjpeg
+      - web_data:./newfile.mjpeg
     deploy:
       mode: replicated
       replicas: 1
