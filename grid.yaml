@@ -9,7 +9,7 @@ services:
   video:
     image: usernamenottakenagain/test
     volumes:
-      - data: ./newfile.mjpeg
+      - data:./newfile.mjpeg
     deploy:
       mode: replicated
       replicas: 1
