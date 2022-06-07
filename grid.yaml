@@ -2,6 +2,7 @@ version: '3.8'
 
 volumes:
   data:
+    external: true
 
 services:
 
@@ -22,7 +23,6 @@ services:
     image: usernamenottakenagain/test
     volumes:
       - data:/
-      external: true
     deploy:
       replicas: 1
       placement:
