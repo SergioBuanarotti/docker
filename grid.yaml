@@ -32,7 +32,7 @@ services:
         target: /dev/shm
         tmpfs:
            size: 4096000000
-      - ~/output.y4m:~/output.y4m
+      - /home/ubuntu/output.y4m:~/output.y4m
     deploy:
       replicas: 2
       placement:
