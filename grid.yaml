@@ -28,6 +28,7 @@ services:
       placement:
         constraints:
           - node.role == worker
+    entrypoint: bash
     
 
   chrome:
