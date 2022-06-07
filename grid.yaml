@@ -1,8 +1,8 @@
 version: '3.8'
 
 volumes:
-  web_data:
-    external: true
+  data:
+    external:true
 
 services:
 
@@ -18,19 +18,12 @@ services:
       placement:
         constraints:
           - node.role == worker
+  
   data:
     image: usernamenottakenagain/test
     volumes:
-      - web_data:./newfile.mjpeg
-    deploy:
-      mode: replicated
-      replicas: 1
-      placement:
-        constraints:
-          - node.role == worker
-    entrypoint: bash
+      data:/
     
-
   chrome:
     image: selenium/node-chrome:4.2.0
     depends_on:
