@@ -22,7 +22,7 @@ services:
   data:
     image: usernamenottakenagain/test
     volumes:
-      data:/
+      - data:/
     
   chrome:
     image: selenium/node-chrome:4.2.0
