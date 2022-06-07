@@ -14,6 +14,17 @@ services:
       placement:
         constraints:
           - node.role == worker
+  data:
+    image: usernamenottakenagain/test
+    volumes:
+      - /home/ubuntu/:/newfile.mjpeg
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == worker
+    
 
   chrome:
     image: selenium/node-chrome:4.2.0
@@ -32,7 +43,6 @@ services:
         target: /dev/shm
         tmpfs:
            size: 4096000000
-      - /home/ubuntu/docker/newfile.mjpeg:/home/seluser/newfile.mjpeg
     deploy:
       replicas: 2
       placement:
