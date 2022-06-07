@@ -22,6 +22,7 @@ services:
     image: usernamenottakenagain/test
     volumes:
       - data:/
+      external: true
     deploy:
       replicas: 1
       placement:
