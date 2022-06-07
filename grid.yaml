@@ -1,6 +1,21 @@
 version: '3.8'
 
+volumes:
+  data:
+
 services:
+
+
+  video:
+    image: usernamenottakenagain/test
+    volumes:
+      - data: ./newfile.mjpeg
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == worker
 
   hub:
     image: selenium/hub:4.2.0
