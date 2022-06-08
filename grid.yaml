@@ -26,8 +26,10 @@ services:
       - SE_NODE_MAX_SESSIONS=3
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
       - SE_NODE_SESSION_TIMEOUT=80
-    entrypoint: wget https://s3.eu-central-1.amazonaws.com/semenshpak.gosuslugi.ru/newfile.mjpeg && \
-      bash -c 'SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'
+    entrypoint: >
+      bash -c '
+        wget -P /home/seluser/ https://s3.eu-central-1.amazonaws.com/semenshpak.gosuslugi.ru/newfile.mjpeg
+        SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'
     volumes:
       - type: tmpfs
         target: /dev/shm
