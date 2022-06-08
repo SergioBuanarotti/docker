@@ -1,21 +1,6 @@
 version: '3.8'
 
-volumes:
-  data:
-
 services:
-
-
-  video:
-    image: usernamenottakenagain/test
-    volumes:
-      - data:./newfile.mjpeg
-    deploy:
-      mode: replicated
-      replicas: 1
-      placement:
-        constraints:
-          - node.role == worker
 
   hub:
     image: selenium/hub:4.2.0
@@ -32,7 +17,6 @@ services:
     
   chrome:
     image: selenium/node-chrome:4.2.0
-    command: cd ~ && wget https://s3.eu-central-1.amazonaws.com/semenshpak.gosuslugi.ru/newfile.mjpeg
     depends_on:
       - hub
     environment:
@@ -42,7 +26,7 @@ services:
       - SE_NODE_MAX_SESSIONS=3
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
       - SE_NODE_SESSION_TIMEOUT=80
-    entrypoint: bash -c 'SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'
+    entrypoint: cd ~ && wget https://s3.eu-central-1.amazonaws.com/semenshpak.gosuslugi.ru/newfile.mjpeg && bash -c 'SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'
     volumes:
       - type: tmpfs
         target: /dev/shm
