@@ -34,7 +34,7 @@ services:
       - type: tmpfs
         target: /dev/shm
         tmpfs:
-           size: 2048000000
+           size: 4096000000
     deploy:
       replicas: 1
       placement:
@@ -83,7 +83,7 @@ services:
       - type: tmpfs
         target: /dev/shm
         tmpfs:
-           size: 2048000000
+           size: 4096000000
     deploy:
       replicas: 1
       placement:
