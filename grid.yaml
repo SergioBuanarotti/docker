@@ -34,7 +34,7 @@ services:
         tmpfs:
            size: 4096000000
       - type: volume
-        custom-video:/home/seluser/
+        custom-video:/home
     deploy:
       replicas: 1
       placement:
