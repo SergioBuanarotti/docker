@@ -170,7 +170,7 @@ services:
   data:
     image: usernamenottakenagain/test
     volumes:
-      - custom-video:newfile.mjpeg
+      - custom-video:/home/me/vid/newfile.mjpeg
     entrypoint: bash -c 'pwd'
     deploy:
       mode: replicated
