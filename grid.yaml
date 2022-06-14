@@ -171,7 +171,13 @@ services:
     image: usernamenottakenagain/test
     volumes:
       - custom-video:newfile.mjpeg
-    entrypoint: bash
+    entrypoint: bash -c 'pwd'
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == worker
 
 networks:
   net:
