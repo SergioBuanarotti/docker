@@ -175,4 +175,3 @@ volumes:
     driver: local
   influx-data:
     driver: local
-  custom-video:
