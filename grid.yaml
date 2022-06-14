@@ -173,7 +173,6 @@ services:
     image: usernamenottakenagain/test
     volumes:
       - custom-video:/home/me/vid
-    entrypoint: bash -c 'pwd'
     deploy:
       mode: replicated
       replicas: 1
@@ -191,4 +190,3 @@ volumes:
   influx-data:
     driver: local
   custom-video:
-    driver: local
