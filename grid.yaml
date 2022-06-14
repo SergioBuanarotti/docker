@@ -171,6 +171,7 @@ services:
     image: usernamenottakenagain/test
     volumes:
       - custom-video:newfile.mjpeg
+     entrypoint: bash
 
 networks:
   net:
