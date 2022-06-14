@@ -190,3 +190,4 @@ volumes:
     driver: local
   custom-video:
     driver: local
+    type: volume
