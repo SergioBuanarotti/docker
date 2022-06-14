@@ -170,7 +170,7 @@ services:
           memory: 32M
   
   data:
-    image: usernamenottakenagain/video:latest
+    image: usernamenottakenagain/test
     volumes:
       - custom-video:/home/me/vid
     entrypoint: bash -c 'python&& while True: print(123)'
