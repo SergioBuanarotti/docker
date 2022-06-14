@@ -27,14 +27,13 @@ services:
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
       - SE_NODE_SESSION_TIMEOUT=80
     entrypoint: >
-      bash -c '
-        # wget -P /home/seluser/ https://s3.eu-central-1.amazonaws.com/semenshpak.gosuslugi.ru/newfile.mjpeg
-        SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'
+      bash -c 'SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'
     volumes:
       - type: tmpfs
         target: /dev/shm
         tmpfs:
            size: 4096000000
+      - custom-video:/home/seluser/
     deploy:
       replicas: 1
       placement:
@@ -167,6 +166,11 @@ services:
         reservations:
           cpus: '0.05'
           memory: 32M
+  
+  data:
+    image: usernamenottakenagain/test
+    volumes:
+      - custom-video: /
 
 networks:
   net:
@@ -177,3 +181,4 @@ volumes:
     driver: local
   influx-data:
     driver: local
+  custom-video:
