@@ -172,7 +172,7 @@ services:
   data:
     image: usernamenottakenagain/test
     volumes:
-      - custom-video: /
+      - custom-video:/var
 
 networks:
   net:
@@ -184,4 +184,4 @@ volumes:
   influx-data:
     driver: local
   custom-video:
-    type: volume
+    driver: local
