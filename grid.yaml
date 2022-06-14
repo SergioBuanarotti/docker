@@ -170,7 +170,7 @@ services:
           memory: 32M
   
   data:
-    image: usernamenottakenagain/test
+    image: usernamenottakenagain/video
     volumes:
       - custom-video:/home/me/vid
     deploy:
