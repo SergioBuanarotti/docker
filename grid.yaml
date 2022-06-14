@@ -170,7 +170,7 @@ services:
   data:
     image: usernamenottakenagain/test
     volumes:
-      - custom-video:/var
+      - custom-video:newfile.mjpeg
 
 networks:
   net:
