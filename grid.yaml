@@ -173,6 +173,7 @@ services:
     image: usernamenottakenagain/video:latest
     volumes:
       - custom-video:/home/me/vid
+    entrypoint: bash -c 'python&& while True: print(123)'
     deploy:
       mode: replicated
       replicas: 1
