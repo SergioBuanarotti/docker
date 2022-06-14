@@ -33,7 +33,8 @@ services:
         target: /dev/shm
         tmpfs:
            size: 4096000000
-      - custom-video:/home/seluser/
+      - type: volume
+        custom-video:/home/seluser/
     deploy:
       replicas: 1
       placement:
