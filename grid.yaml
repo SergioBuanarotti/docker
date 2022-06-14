@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   hub:
-    image: selenium/hub:4.2.0
+    image: selenium/hub
     ports:
       - 4442:4442
       - 4443:4443
@@ -16,7 +16,7 @@ services:
           - node.role == worker
     
   chrome:
-    image: selenium/node-chrome:4.2.0
+    image: selenium/node-chrome
     depends_on:
       - hub
     environment:
@@ -42,7 +42,7 @@ services:
           - node.role == worker
 
   firefox:
-    image: selenium/node-firefox:4.2.0
+    image: selenium/node-firefox
     depends_on:
       - hub
     environment:
@@ -65,7 +65,7 @@ services:
           - node.role == worker
 
   edge:
-    image: selenium/node-edge:4.2.0
+    image: selenium/node-edge
     depends_on:
       - hub
     environment:
