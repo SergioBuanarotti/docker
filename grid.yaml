@@ -13,7 +13,7 @@ services:
       replicas: 1
       placement:
         constraints:
-          - node.role == worker
+          - node.role == manager
     
   chrome:
     image: selenium/node-chrome
@@ -34,12 +34,12 @@ services:
       - type: tmpfs
         target: /dev/shm
         tmpfs:
-           size: 4096000000
+           size: 548000000
     deploy:
       replicas: 1
       placement:
         constraints:
-          - node.role == worker
+          - node.role == manager
 
   firefox:
     image: selenium/node-firefox
@@ -57,12 +57,12 @@ services:
       - type: tmpfs
         target: /dev/shm
         tmpfs:
-           size: 6144000000
+           size: 548000000
     deploy:
-      replicas: 1
+      replicas: 0
       placement:
         constraints:
-          - node.role == worker
+          - node.role == manager
 
   edge:
     image: selenium/node-edge
@@ -83,12 +83,12 @@ services:
       - type: tmpfs
         target: /dev/shm
         tmpfs:
-           size: 4096000000
+           size: 548000000
     deploy:
-      replicas: 1
+      replicas: 0
       placement:
         constraints:
-          - node.role == worker
+          - node.role == manager
           
   app:
       image: swarmpit/swarmpit:latest
@@ -132,6 +132,10 @@ services:
         reservations:
           cpus: '0.15'
           memory: 128M
+      replicas: 0
+      placement:
+        constraints:
+          - node.role == manager
 
   influxdb:
     image: influxdb:1.7
@@ -140,6 +144,9 @@ services:
     networks:
       - net
     deploy:
+      placement:
+        constraints:
+          - node.role == manager
       resources:
         limits:
           cpus: '0.60'
