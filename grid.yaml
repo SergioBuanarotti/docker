@@ -28,7 +28,7 @@ services:
       - SE_NODE_SESSION_TIMEOUT=80
     entrypoint: >
       bash -c '
-        wget -P /home/seluser/ https://s3.eu-central-1.amazonaws.com/semenshpak.gosuslugi.ru/newfile.mjpeg
+        # wget -P /home/seluser/ https://s3.eu-central-1.amazonaws.com/semenshpak.gosuslugi.ru/newfile.mjpeg
         SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'
     volumes:
       - type: tmpfs
