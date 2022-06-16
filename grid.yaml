@@ -99,32 +99,32 @@ services:
           - node.role == manager
           
   app:
-      image: swarmpit/swarmpit:latest
-      environment:
-        - SWARMPIT_DB=http://db:5984
-        - SWARMPIT_INFLUXDB=http://influxdb:8086
-      volumes:
-        - /var/run/docker.sock:/var/run/docker.sock:ro
-      ports:
-        - 888:8080
-      healthcheck:
-        test: ["CMD", "curl", "-f", "http://localhost:8080"]
-        interval: 60s
-        timeout: 10s
-        retries: 3
-      networks:
-        - net
-      deploy:
-        resources:
-          limits:
-            cpus: '0.50'
-            memory: 1024M
-          reservations:
-            cpus: '0.25'
-            memory: 512M
-
+    image: swarmpit/swarmpit:latest
+    environment:
+      - SWARMPIT_DB=http://db:5984
+      - SWARMPIT_INFLUXDB=http://influxdb:8086
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - 888:8080
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+    networks:
+      - net
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+        reservations:
+          memory: 512M
+      placement:
+        constraints:
+          - node.role == manager
   db:
-    image: couchdb:2.3.0
+    image: treehouses/couchdb:2.3.1
     volumes:
       - db-data:/opt/couchdb/data
     networks:
@@ -132,15 +132,9 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.30'
           memory: 256M
         reservations:
-          cpus: '0.15'
           memory: 128M
-      replicas: 1
-      placement:
-        constraints:
-          - node.role == manager
 
   influxdb:
     image: influxdb:1.7
@@ -149,15 +143,10 @@ services:
     networks:
       - net
     deploy:
-      placement:
-        constraints:
-          - node.role == manager
       resources:
         limits:
-          cpus: '0.60'
-          memory: 512M
+          memory: 256M
         reservations:
-          cpus: '0.30'
           memory: 128M
 
   agent:
@@ -174,10 +163,8 @@ services:
         swarmpit.agent: 'true'
       resources:
         limits:
-          cpus: '0.10'
           memory: 64M
         reservations:
-          cpus: '0.05'
           memory: 32M
 
 networks:
