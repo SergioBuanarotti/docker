@@ -39,7 +39,7 @@ services:
         target: /dev/shm
         tmpfs:
            size: 548000000
-      - data
+      - data:/home/vid/me/newfile.mjpeg
     networks:
       - net
     deploy:
