@@ -18,7 +18,6 @@ services:
           - node.role == manager
     volumes:
       - /home/ubuntu/docker/newfile.mjpeg:/home/ubuntu/docker/newfile.mjpeg
-      - data:/home/ubuntu/docker/newfile.mjpeg
     
   chrome:
     image: selenium/node-chrome
@@ -40,6 +39,8 @@ services:
         target: /dev/shm
         tmpfs:
            size: 548000000
+    volumes_from:
+      - hub
     networks:
       - net
     deploy:
