@@ -10,6 +10,12 @@ services:
       - 4444:4444
     networks:
       - net
+    volumes:
+      - type: volume
+        source: test
+        target: /data
+        volume:
+          nocopy: true
     deploy:
       mode: replicated
       replicas: 1
