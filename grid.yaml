@@ -188,5 +188,5 @@ volumes:
     driver: local
     driver_opts:
       o: bind
-      device: /home/ubuntu/docker/newfile.mjpeg
+      device: /home/ubuntu/docker/
       type: none
