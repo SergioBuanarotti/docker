@@ -37,8 +37,6 @@ services:
         target: /dev/shm
         tmpfs:
            size: 548000000
-    volumes_from:
-      - hub
     networks:
       - net
     deploy:
