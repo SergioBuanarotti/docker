@@ -16,8 +16,8 @@ services:
       placement:
         constraints:
           - node.role == manager
-    volumes: 
-      - data:/home/vid/me/newfile.mjpeg
+    volumes:
+      - /home/ubuntu/docker/newfile.mjpeg:/home/vid/me/newfile.mjpeg
     
   chrome:
     image: selenium/node-chrome
