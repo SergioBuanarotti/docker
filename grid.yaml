@@ -16,8 +16,6 @@ services:
       placement:
         constraints:
           - node.role == manager
-    volumes:
-      - /home/ubuntu/docker/newfile.mjpeg:/home/ubuntu/docker/newfile.mjpeg
     
   chrome:
     image: selenium/node-chrome
@@ -187,3 +185,8 @@ volumes:
   influx-data:
     driver: local
   data:
+    driver: local
+    driver_opts:
+      o: bind
+      device: /home/ubuntu/docker/newfile.mjpeg
+      type: none
