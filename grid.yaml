@@ -11,7 +11,7 @@ services:
     networks:
       - net
     volumes:
-      - data:/home/seluser/newfile.mjpeg
+      - data:/home/seluser/
     deploy:
       mode: replicated
       replicas: 1
