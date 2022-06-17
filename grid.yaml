@@ -186,4 +186,5 @@ volumes:
   influx-data:
     driver: local
   data:
+    driver: local
     
