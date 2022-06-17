@@ -39,6 +39,7 @@ services:
         target: /dev/shm
         tmpfs:
            size: 548000000
+      - data
     networks:
       - net
     deploy:
