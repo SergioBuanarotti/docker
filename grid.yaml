@@ -16,6 +16,8 @@ services:
       placement:
         constraints:
           - node.role == manager
+    volumes: 
+      - data:/home/vid/me/newfile.mjpeg
     
   chrome:
     image: selenium/node-chrome
@@ -182,4 +184,5 @@ volumes:
     driver: local
   influx-data:
     driver: local
+  data:
     
