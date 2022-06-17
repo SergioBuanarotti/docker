@@ -10,8 +10,6 @@ services:
       - 4444:4444
     networks:
       - net
-    volumes:
-      - data:/home/seluser/
     deploy:
       mode: replicated
       replicas: 1
@@ -184,9 +182,10 @@ volumes:
     driver: local
   influx-data:
     driver: local
-  data:
+  test:
     driver: local
     driver_opts:
-      o: bind
-      device: /home/ubuntu/docker/
-      type: none
+      type: nfs
+      o: addr=172.31.172.16
+      device: /home/ubuntu/docker
+
